@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            display: flex;
+            /* UPDATED: White background for the whole page */
+            background-color: #ffffff; 
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Container for positioning */
+        .right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        /* THE CARD: UPDATED with Shadow and high circularity */
+        .card {
+            position: relative;
+            width: 420px;
+            background: white;
+            padding: 40px;
+            /* UPDATED: Increased circularity to 24px to match your other boxes */
+            border-radius: 24px; 
+            /* UPDATED: Added the modern soft shadow */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); 
+            border: 1px solid #f0f0f0;
+            text-align: center;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 30px auto;
+            margin-bottom: 50px;
+            max-width: 200px;
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+            font-weight: 600;
+            /* Updated to match your corporate blue */
+            color: #063347; 
+        }
+
+        .description {
+            font-size: 14px;
+            margin-bottom: 30px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .code-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+
+        .code-container input {
+            width: 50px;
+            height: 55px;
+            text-align:center;
+            font-size: 20px;
+            font-weight: 600;
+            /* Increased circularity for input boxes */
+            border-radius: 12px; 
+            border: 2px solid #eee;
+            background: #fcfcfc;
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        .code-container input:focus {
+            border-color: #063347;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(6, 51, 71, 0.05);
+        }
+
+        /* BUTTON: UPDATED with high circularity and corporate color */
+        button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            /* UPDATED: Increased circularity to 30px */
+            border-radius: 30px; 
+            background: #063347;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            background: #08435e;
+            box-shadow: 0 8px 20px rgba(6, 51, 71, 0.2);
+        }
+
+        .resend {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #063347;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .resend:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="right">
+    <div class="card">
+
+        <img src="Logo.png" class="logo" onerror="this.src='https://via.placeholder.com/150x50?text=LOGO+1'">
+
+        <h2>Email Verification</h2>
+
+        <div class="description">
+            Enter the 6-digit code sent to your email address to continue.
+        </div>
+
+        <div class="code-container">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+        </div>
+
+        <button onclick="verify()">Verify Account</button>
+
+        <div class="resend">
+            Didn't receive a code? <b>Resend</b>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function verify(){
+    alert("Email verified! Redirecting to portal...");
+}
+
+// Simple auto-focus logic for the code inputs
+const inputs = document.querySelectorAll('.code-container input');
+inputs.forEach((input, index) => {
+    input.addEventListener('input', () => {
+        if (input.value && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+        }
+    });
+});
+</script>
+
+</body>
+</html>

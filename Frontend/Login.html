@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - SalesForce</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        height: 100vh;
+        display: flex;
+        /* UPDATED: Matches the white background of previous pages */
+        background-color: #ffffff; 
+        align-items: center;
+        justify-content: center;
+    }
+
+    .right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        position: relative;
+    }
+
+    /* THE CARD: Updated with high circularity and soft shadow */
+    .card {
+        position: relative;
+        width: 420px;
+        background: white;
+        padding: 40px;
+        /* UPDATED: 24px circularity */
+        border-radius: 24px; 
+        /* UPDATED: Modern soft shadow */
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); 
+        border: 1px solid #f0f0f0;
+        text-align: center;
+    }
+
+    .logo {
+        display: block;
+        margin: 0 auto 30px auto;
+        max-width: 250px;
+    }
+
+    .card h2 {
+        margin-bottom: 25px;
+        font-weight: 600;
+        /* UPDATED: Corporate color #063347 */
+        color: #063347; 
+    }
+
+    .input {
+        width: 100%;
+        padding: 16px 20px;
+        margin-bottom: 15px;
+        /* UPDATED: Rounded input fields */
+        border-radius: 12px; 
+        border: 2px solid #eee;
+        background: #fcfcfc;
+        font-size: 14px;
+        transition: all 0.2s;
+        outline: none;
+    }
+
+    .input:focus {
+        border-color: #063347;
+        background: #fff;
+        box-shadow: 0 0 0 4px rgba(6, 51, 71, 0.05);
+    }
+
+    .forgot {
+        font-size: 13px;
+        text-align: right;
+        margin-bottom: 25px;
+        color: #063347;
+        font-weight: 500;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+    .forgot:hover {
+        text-decoration: underline;
+    }
+
+    /* BUTTON: Updated circularity and color */
+    button {
+        width: 100%;
+        padding: 16px;
+        border: none;
+        /* UPDATED: 30px pill shape */
+        border-radius: 30px; 
+        background: #063347;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+        background: #08435e;
+        box-shadow: 0 8px 20px rgba(6, 51, 71, 0.2);
+    }
+
+    /* Responsive */
+    @media(max-width:480px){
+        .card {
+            width: 90%;
+            padding: 30px 20px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="right">
+    <div class="card">
+        
+        <img src="Logo.png" alt="Company Logo" class="logo" onerror="this.src='https://via.placeholder.com/200x60?text=LOGO+1'">
+
+        <h2>Login</h2>
+
+        <input class="input" type="email" placeholder="Email Address">
+        <input class="input" type="password" placeholder="Password">
+
+        <div class="forgot" onclick="window.location.href='forgot-password.html'">Forgot password?</div>
+
+        <button onclick="login()">Login</button>
+
+    </div>
+</div>
+
+<script>
+function login(){
+    // In a real app, you would validate credentials here
+    window.location.href = 'portal.html'; 
+}
+</script>
+
+</body>
+</html>

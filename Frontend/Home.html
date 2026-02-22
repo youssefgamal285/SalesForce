@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - Corporate Portal</title>
+    <style>
+        :root {
+            --primary-blue: #1e659b;
+            --bg-gray: #f0f2f5;
+            --border-color: #ccc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-gray);
+            color: #333;
+        }
+
+        /* --- TOP NAVIGATION BAR --- */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--white);
+            padding: 10px 20px;
+            height: 60px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-right: 15px;
+        }
+
+        .logo-box:first-child {
+            border-right: 1px solid #ddd;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-label {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+        }
+
+        .search-container {
+            flex-grow: 1;
+            max-width: 600px;
+            margin: 0 40px;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 2px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        .search-bar:focus {
+            border-color: #086187;
+        }
+
+        .top-right-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* --- NOTIFICATION BELL --- */
+        .notification-icon {
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bell-svg {
+            width: 28px;
+            height: 28px;
+            fill: none;
+            stroke: #333;
+            stroke-width: 1.5;
+        }
+
+        .notif-badge {
+            position: absolute;
+            top: -4px;
+            right: -6px;
+            background: #e11d48;
+            color: white;
+            border: 2.5px solid white;
+            border-radius: 50%;
+            padding: 1px 5px;
+            font-size: 10px;
+            font-weight: bold;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* --- UPDATED PROFILE ICON --- */
+        .profile-icon {
+            width: 35px;
+            height: 35px;
+            background-color: #ccc; /* Grey background from image */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-svg {
+            width: 100%;
+            height: 100%;
+            fill: #999; /* Darker grey for the person silhouette */
+        }
+
+        /* --- MAIN CONTENT AREA --- */
+        .main-layout {
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .orders-container {
+            flex: 3;
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 500px;
+        }
+
+        .politics-container {
+            flex: 1;
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 500px;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #043245;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .demo-result {
+            border: 1px solid #eee;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .demo-result:hover {
+            background-color: #f9f9f9;
+        }
+
+        .order-info b {
+            display: block;
+            font-size: 14px;
+        }
+
+        .order-info span {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .status-pill {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            /* Updated to requested color #063347 */
+            background: #063347;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-section">
+            <div class="logo-box">
+                <img src="Logo.png" alt="Company 1" class="logo-img" onerror="this.src='https://via.placeholder.com/100x35?text=LOGO+1'">
+            </div>
+            <div class="logo-box">
+                <img src="Logo2.png" alt="Company 2" class="logo-img" onerror="this.src='https://via.placeholder.com/100x35?text=LOGO+2'">
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search orders, customers, or invoices...">
+        </div>
+
+        <div class="top-right-icons">
+            <div class="notification-icon">
+                <svg class="bell-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+                <span class="notif-badge">3</span>
+            </div>
+            
+            <div class="profile-icon">
+                <svg class="profile-svg" viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <div class="orders-container">
+            <h2>Orders Search Results</h2>
+            <div class="demo-result" onclick="location.href='order_details.html'">
+                <div class="order-info">
+                    <b>Order #10103681232078</b>
+                    <span>Customer: Roger Smith | Date: 17.01.2026</span>
+                </div>
+                <div class="status-pill">Delivered</div>
+            </div>
+            <div class="demo-result">
+                <div class="order-info">
+                    <b>Order #10103681239941</b>
+                    <span>Customer: Jane Doe | Date: 18.01.2026</span>
+                </div>
+                <div class="status-pill" style="background:#063347; color:white;">In Transit</div>
+            </div>
+        </div>
+
+        <div class="politics-container">
+            <h2>Politics</h2>
+            <p style="color: #999; font-size: 13px; font-style: italic;">No current updates available.</p>
+        </div>
+    </div>
+
+</body>
+</html>

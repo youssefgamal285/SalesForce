@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forgot Password</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        height: 100vh;
+        display: flex;
+        /* UPDATED: White background to match verification page */
+        background-color: #ffffff; 
+        align-items: center;
+        justify-content: center;
+    }
+
+    .right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    /* THE CARD: Updated with Shadow and high circularity */
+    .card {
+        position: relative;
+        width: 420px;
+        background: white;
+        padding: 40px;
+        /* UPDATED: Increased circularity to 24px */
+        border-radius: 24px; 
+        /* UPDATED: Soft modern shadow */
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); 
+        border: 1px solid #f0f0f0;
+        text-align: center;
+    }
+
+    .logo {
+        display: block;
+        margin: 0 auto 30px auto;
+        margin-bottom: 50px;
+        max-width: 200px;
+    }
+
+    .card h2 {
+        margin-bottom: 10px;
+        font-weight: 600;
+        /* UPDATED: Color matching verification page */
+        color: #063347; 
+    }
+
+    .description {
+        font-size: 14px;
+        margin-bottom: 30px;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    .input {
+        width: 100%;
+        padding: 16px 20px;
+        margin-bottom: 25px;
+        /* UPDATED: Rounded input fields */
+        border-radius: 12px; 
+        border: 2px solid #eee;
+        background: #fcfcfc;
+        font-size: 14px;
+        transition: all 0.2s;
+        outline: none;
+    }
+
+    .input:focus {
+        border-color: #063347;
+        background: #fff;
+        box-shadow: 0 0 0 4px rgba(6, 51, 71, 0.05);
+    }
+
+    /* BUTTON: Updated with corporate color and circularity */
+    button {
+        width: 100%;
+        padding: 16px;
+        border: none;
+        /* UPDATED: High circularity */
+        border-radius: 30px; 
+        background: #063347;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+        background: #08435e;
+        box-shadow: 0 8px 20px rgba(6, 51, 71, 0.2);
+    }
+
+    .back {
+        margin-top: 25px;
+        font-size: 14px;
+        /* UPDATED: Color match */
+        color: #063347; 
+        font-weight: 500;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    .back:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="right">
+    <div class="card">
+
+        <img src="Logo.png" class="logo" onerror="this.src='https://via.placeholder.com/150x50?text=LOGO+1'">
+
+        <h2>Forgot Password</h2>
+
+        <div class="description">
+            Enter your email and we will send you a reset link to your inbox.
+        </div>
+
+        <input class="input" type="email" placeholder="Email Address">
+
+        <button onclick="goToVerification()">Send Reset Link</button>
+
+        <div class="back" onclick="window.location.href='index.html'">
+            Back to Login
+        </div>
+
+    </div>
+</div>
+
+<script>
+function goToVerification() {
+    // Replace with your actual verification page link
+    alert("Sending code... Redirecting to verification page.");
+}
+</script>
+
+</body>
+</html>
