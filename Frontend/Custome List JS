@@ -1,0 +1,43 @@
+
+const customers = [
+    { id: "001", name: "Ahmed Salem", email: "ahmed@example.com", phone: "0102345678", status: "active" },
+    { id: "002", name: "Sara Ali", email: "sara@example.com", phone: "0115566778", status: "active" },
+    { id: "003", name: "Mohamed Omar", email: "m.omar@example.com", phone: "0128899001", status: "inactive" },
+    { id: "004", name: "Lila Hassan", email: "lila@example.com", phone: "0151122334", status: "active" },
+];
+
+const customerBody = document.getElementById('customerBody');
+const searchInput = document.getElementById('customerSearch');
+
+
+function displayCustomers(data) {
+    customerBody.innerHTML = "";
+    data.forEach(customer => {
+        customerBody.innerHTML += `
+            <tr>
+                <td>#${customer.id}</td>
+                <td><strong>${customer.name}</strong></td>
+                <td>${customer.email}</td>
+                <td>${customer.phone}</td>
+                <td><span class="status ${customer.status}">${customer.status.toUpperCase()}</span></td>
+                <td>
+                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+
+displayCustomers(customers);
+
+
+searchInput.addEventListener('input', (e) => {
+    const term = e.target.value.toLowerCase();
+    const filtered = customers.filter(c => 
+        c.name.toLowerCase().includes(term) || 
+        c.email.toLowerCase().includes(term)
+    );
+    displayCustomers(filtered);
+});
