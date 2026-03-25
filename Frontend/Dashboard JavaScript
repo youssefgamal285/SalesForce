@@ -1,8 +1,8 @@
-// رسم بياني بسيط باستخدام Chart.js
+
 const ctx = document.getElementById('salesChart').getContext('2d');
 
 new Chart(ctx, {
-    type: 'line', // ممكن تغيرها لـ 'bar'
+    type: 'line', 
     data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
         datasets: [{
@@ -11,7 +11,7 @@ new Chart(ctx, {
             borderColor: '#00a1e0', // لون Salesforce الشهير
             backgroundColor: 'rgba(0, 161, 224, 0.1)',
             fill: true,
-            tension: 0.4 // بيخلي الخط منحني وشكله أشيك
+            tension: 0.4  
         }]
     },
     options: {
