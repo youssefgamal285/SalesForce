@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salesforce Customer Dashboard - Dark Petrol</title>
+    
+    <style>
+        /* Deep Petrol Palette */
+        :root {
+            --petrol-deep: #002d33;   /* أغمق درجة بترولي */
+            --petrol-dark: #004047;   /* درجة داكنة متوسطة */
+            --petrol-accent: #005f6b; /* للـ Hover */
+            --bg-gray: #f0f2f2;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-gray);
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .dashboard-container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        /* 1. Search Bar */
+        .search-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            display: flex;
+            width: 100%;
+            max-width: 650px;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid #d1d5db;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 14px 20px;
+            font-size: 16px;
+        }
+
+        .btn-search {
+            background: var(--petrol-deep);
+            color: var(--white);
+            border: none;
+            padding: 0 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .btn-search:hover {
+            background: var(--petrol-accent);
+        }
+
+        /* 2. Customer Label (Deep Dark Petrol) */
+        .customer-info-label {
+            background: linear-gradient(135deg, #001f24 0%, var(--petrol-deep) 100%);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            box-shadow: 0 20px 40px rgba(0, 45, 51, 0.25);
+            border-left: 8px solid #008191; /* خط تجميلي جانبي */
+        }
+
+        .label-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #00b8cc;
+            margin-bottom: 20px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .info-grid {
+            display: flex;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+
+        .info-group span {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: #a3bfc2;
+        }
+
+        .info-group strong {
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        /* 3. Action Cards Grid */
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .action-card {
+            background: var(--white);
+            padding: 40px 20px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: #1a2e30;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .action-card:hover {
+            transform: translateY(-10px);
+            background: var(--petrol-deep);
+            color: white;
+            border-color: var(--petrol-deep);
+        }
+
+        .action-card:hover p {
+            color: #a3bfc2;
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .action-card h3 {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .action-card p {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        @media (max-width: 800px) {
+            .actions-grid { grid-template-columns: repeat(2, 1fr); }
+            .info-grid { gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <div class="search-wrapper">
+            <div class="search-box">
+                <input type="text" placeholder="Search by Account Number (e.g. #ACC-8610)">
+                <button class="btn-search">Search</button>
+            </div>
+        </div>
+
+        <div class="customer-info-label">
+            <span class="label-tag">Account Data Found</span>
+            <div class="info-grid">
+                <div class="info-group">
+                    <span>Full Name</span>
+                    <strong>Mariam Ahmed</strong>
+                </div>
+                <div class="info-group">
+                    <span>Shipping Address</span>
+                    <strong>Cairo, Al Shorouk City</strong>
+                </div>
+                <div class="info-group">
+                    <span>Account Status</span>
+                    <strong>Active</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions-grid">
+            
+            <a href="#" class="action-card">
+                <span class="card-icon">💳</span>
+                <h3>Payments</h3>
+                <p>Transactions</p>
+            </a>
+
+            <a href="#" class="action-card">
+                <span class="card-icon">📦</span>
+                <h3>Orders</h3>
+                <p>Manage Logs</p>
+            </a>
+
+            <a href="#" class="action-card">
+                <span class="card-icon">↩️</span>
+                <h3>Returns</h3>
+                <p>Status Tracking</p>
+            </a>
+
+            <a href="#" class="action-card">
+                <span class="card-icon">❤️</span>
+                <h3>Wishlist</h3>
+                <p>Stored Items</p>
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
