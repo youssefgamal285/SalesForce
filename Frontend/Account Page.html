@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salesforce CRM Dashboard</title>
+
+<style>
+:root {
+    --petrol-deep: #002d33;    
+    --petrol-dark: #004047;    
+    --petrol-accent: #008191;  
+    --bg-gray: #f0f4f5;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-gray);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    padding: 40px 20px;
+}
+
+/* CONTAINER */
+.dashboard-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* HEADER */
+.top-header {
+    background: white;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px; /* خليتها دائرية بالكامل لأن مفيش ناو بار تحتها */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.logo {
+    height: 45px;
+}
+
+.terminal-id {
+    font-size: 14px;
+    color: #666;
+}
+
+/* SEARCH */
+.search-wrapper {
+    margin-bottom: 30px;
+}
+
+.search-box {
+    display: flex;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 14px 20px;
+    font-size: 16px;
+}
+
+.btn-search {
+    background: var(--petrol-deep);
+    color: var(--white);
+    border: none;
+    padding: 0 40px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-search:hover {
+    background: var(--petrol-accent);
+}
+
+/* CUSTOMER FORM SECTION */
+.customer-section-title {
+    margin-bottom: 15px;
+    color: var(--petrol-deep);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.customer-info-label {
+    background: linear-gradient(135deg, #001f24 0%, var(--petrol-deep) 100%);
+    color: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 35px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-group label {
+    font-size: 12px;
+    margin-bottom: 8px;
+    color: #a3bfc2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-group input,
+.info-group select {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    color: white;
+    outline: none;
+    font-size: 14px;
+}
+
+/* لتحسين شكل المدخلات وهي ثابتة */
+.info-group input::placeholder {
+    color: #6a8b8f;
+}
+
+.info-group select option {
+    background: var(--petrol-deep);
+    color: white;
+}
+
+/* ACTION CARDS */
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.action-card {
+    background: var(--white);
+    padding: 40px 20px;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    color: #1a2e30;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.action-card:hover {
+    transform: translateY(-10px);
+    background: var(--petrol-deep);
+    color: white;
+}
+
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 18px;
+    display: block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 850px) {
+    .actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <header>
+        <div class="top-header">
+            <img src="Salesforce logo.png" alt="logo" class="logo">
+            <div class="terminal-id">Terminal ID: #SF-001</div>
+        </div>
+    </header>
+
+    <div class="search-wrapper">
+        <div class="search-box">
+            <input type="text" placeholder="Search by Account Number...">
+            <button class="btn-search">Search</button>
+        </div>
+    </div>
+
+    <h2 class="customer-section-title">Customer Information</h2>
+    <div class="customer-info-label">
+        <form class="info-grid">
+
+            <div class="info-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Customer Name" value="Ahmed Mohamed" readonly>
+            </div>
+
+            <div class="info-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="Email" value="ahmed@gmail.com" readonly>
+            </div>
+
+            <div class="info-group">
+                <label>Shipping Address</label>
+                <input type="text" placeholder="Address" value="Cairo, Egypt" readonly>
+            </div>
+
+            <div class="info-group">
+                <label>Account Status</label>
+                <select disabled>
+                    <option selected>Active</option>
+                    <option>Inactive</option>
+                    <option>Pending</option>
+                </select>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="actions-grid">
+
+        <a href="#" class="action-card">
+            <span class="card-icon">💳</span>
+            <h3>Payments</h3>
+        </a>
+
+        <a href="#" class="action-card">
+            <span class="card-icon">📦</span>
+            <h3>Orders</h3>
+        </a>
+
+        <a href="#" class="action-card">
+            <span class="card-icon">↩️</span>
+            <h3>Returns</h3>
+        </a>
+
+        <a href="#" class="action-card">
+            <span class="card-icon">🎫</span>
+            <h3>Tickets</h3>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+        
