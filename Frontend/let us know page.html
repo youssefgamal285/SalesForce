@@ -47,13 +47,12 @@
             color: white;
         }
 
-        /* تنسيق اللوجو */
         .logo-container {
-            margin-bottom: 40px; /* مسافة تحت اللوجو */
+            margin-bottom: 40px;
         }
 
         .logo-container img {
-            max-height: 50px; /* تقدري تتحكمي في مقاس اللوجو من هنا */
+            max-height: 50px;
             width: auto;
         }
 
@@ -138,6 +137,17 @@
             transform: translateY(-3px);
         }
 
+        .take-action {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .take-action h3 {
+            margin-bottom: 15px;
+            color: #002d33;
+        }
+
         @media (max-width: 992px) {
             .main-container { flex-direction: column; }
             .right-form { border-radius: 0; padding: 40px 30px; }
@@ -147,59 +157,99 @@
         }
     </style>
 </head>
+
 <body>
 
-    <div class="main-container">
+<div class="main-container">
         
-        <div class="left-content">
-            <div class="logo-container">
-                <img src="Salesforce logo.png" alt="Company Logo">
-            </div>
+<div class="left-content">
+<div class="logo-container">
+<img src="Salesforce logo.png" alt="Company Logo">
+</div>
 
-            <h1>Just let us know how we can help you.</h1>
-            <p>We’d love to hear from you. Our team is always here to chat and find the best solutions.</p>
-        </div>
+<h1>Just let us know how we can help you.</h1>
+<p>We’d love to hear from you. Our team is always here to chat and find the best solutions.</p>
 
-        <div class="right-form">
-            <form class="form-grid">
-                <div class="input-group">
-                    <label>First Name</label>
-                    <input type="text" placeholder="John">
-                </div>
-                <div class="input-group">
-                    <label>Last Name</label>
-                    <input type="text" placeholder="Doe">
-                </div>
-                <div class="input-group full-width">
-                    <label> Email</label>
-                    <input type="email" placeholder="john@company.com">
-                </div>
-                <div class="input-group">
-                    <label>Country</label>
-                    <select>
-                        <option disabled selected>Select country</option>
-                        <option>Egypt</option>
-                        <option>Saudi Arabia</option>
-                        <option>UAE</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>Industry</label>
-                    <select>
-                        <option disabled selected>Select industry</option>
-                        <option>Technology</option>
-                        <option>Fashion</option>
-                        <option>Retail</option>
-                    </select>
-                </div>
-                <div class="input-group full-width">
-                    <label>How can we help?</label>
-                    <textarea placeholder="Briefly describe your inquiry..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit full-width">Send Message</button>
-            </form>
-        </div>
-    </div>
+</div>
+
+<div class="right-form">
+<form class="form-grid">
+
+<div class="input-group">
+<label>First Name</label>
+<input type="text" placeholder="John">
+</div>
+
+<div class="input-group">
+<label>Last Name</label>
+<input type="text" placeholder="Doe">
+</div>
+
+<div class="input-group full-width">
+<label>Email</label>
+<input type="email" placeholder="john@company.com">
+</div>
+
+<div class="input-group">
+<label>Country</label>
+<select>
+<option disabled selected>Select country</option>
+<option>Egypt</option>
+<option>Saudi Arabia</option>
+<option>UAE</option>
+</select>
+</div>
+
+<div class="input-group">
+<label>Industry</label>
+<select>
+<option disabled selected>Select industry</option>
+<option>Technology</option>
+<option>Fashion</option>
+<option>Retail</option>
+</select>
+</div>
+
+<div class="input-group full-width">
+<label>How can we help?</label>
+<textarea placeholder="Briefly describe your inquiry..."></textarea>
+</div>
+
+<div class="take-action full-width">
+<h3>Take Action</h3>
+
+<div class="input-group">
+<label>Processing</label>
+<select>
+<option disabled selected>Select Status</option>
+<option>Pending</option>
+<option>Shipped</option>
+<option>Delivered</option>
+<option>Cancelled</option>
+</select>
+</div>
+
+<div class="input-group">
+<label>Delivered</label>
+<select>
+<option disabled selected>Select Status</option>
+<option>Pending</option>
+<option>Shipped</option>
+<option>Delivered</option>
+<option>Cancelled</option>
+</select>
+</div>
+
+</div>
+
+<button type="submit" class="btn-submit full-width">
+Send Message
+</button>
+
+</form>
+</div>
+
+</div>
 
 </body>
 </html>

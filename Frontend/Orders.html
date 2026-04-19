@@ -6,7 +6,7 @@
     <title>SalesForce</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style>
-        /* --- YOUR ORIGINAL CSS STYLES --- */
+        /* --- ORIGINAL CSS STYLES --- */
         body { 
             font-family: 'Segoe UI', Tahoma, sans-serif; 
             background: #f0f2f5; 
@@ -99,6 +99,20 @@
             background: #063347; 
             color: white; 
         }
+
+        /* --- NEW ACTION LINK STYLE --- */
+        .action-link {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: #00a1e0;
+            color: white !important;
+            text-decoration: none !important;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .action-link:hover { background-color: #032d42; }
 
         .popup-panel {
             display: none; 
@@ -230,6 +244,7 @@
                         <tr>
                             <th>Brand Name</th>
                             <th>Item Number</th>
+                            <th>Action</th>
                             <th>Size</th>
                             <th>Entered Price</th>
                             <th>Discount Price</th>
@@ -237,8 +252,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr>
+                            <td>Joe</td>
+                            <td></td>
+                            <td><a href="https://example.com/item/12345" target="_blank" class="action-link">view item</a></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><a href="https://example.com/item/67890" target="_blank" class="action-link">view item</a></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -344,7 +375,6 @@
                         <p class="text-[13px] text-[#e04f4f] font-medium leading-tight">
                             Are you sure you want to cancel this order? This action cannot be undone.
                         </p>
-                        
                         <div class="space-y-1">
                             <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-tight">Reason (Optional)</label>
                             <select class="w-full text-sm border-[#f8a5a5] rounded focus:ring-1 focus:ring-red-200 focus:border-red-400 py-2">
@@ -355,7 +385,6 @@
                                 <option value="system_error">System Error</option>
                             </select>
                         </div>
-
                         <button class="w-full py-3 bg-[#fff0f0] text-[#c23939] border border-[#fbdcdc] rounded text-sm font-bold hover:bg-[#ffe5e5] transition-colors">
                             Cancel Order
                         </button>
