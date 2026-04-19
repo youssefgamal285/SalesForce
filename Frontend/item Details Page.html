@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Item Details | Service Console</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .accent-bg { background-color: #2F2FE4; }
+    .accent-text { color: #2F2FE4; }
+    .section-label { 
+      font-size: 10px; 
+      font-weight: 700; 
+      color: #64748b; 
+      text-transform: uppercase; 
+      letter-spacing: 0.05em; 
+      margin-bottom: 4px; 
+      display: block;
+    }
+    .color-swatch {
+      width: 24px;
+      height: 24px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      border: 1px solid #e2e8f0;
+    }
+    .color-swatch:hover {
+      box-shadow: 0 0 0 2px #e2e8f0;
+    }
+    .color-swatch.active {
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2F2FE4;
+    }
+  </style>
+</head>
+
+<body class="bg-[#f4f7fe] text-slate-800">
+
+<header class="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between sticky top-0 z-50">
+    <div class="flex items-center gap-4">
+        <button onclick="history.back()" class="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-500">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+        </button>
+        <div>
+            <h1 class="text-xs font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Product Management</h1>
+            <p class="text-lg font-bold leading-none text-slate-900">Item Details Page</p>
+        </div>
+    </div>
+    <div class="flex items-center gap-3">
+        <button class="px-4 py-2 border border-slate-300 rounded text-sm font-semibold hover:bg-slate-50 transition-all">Edit Item</button>
+        <button class="accent-bg text-white px-6 py-2 rounded text-sm font-semibold shadow-md hover:opacity-90 transition-all">Save Changes</button>
+    </div>
+</header>
+
+<div class="max-w-[1400px] mx-auto p-6">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+    <div class="space-y-6">
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-4 border-b border-slate-100 bg-slate-50/50">
+                <h2 class="font-bold text-slate-700 text-sm">Media Gallery</h2>
+            </div>
+            <div class="p-4 space-y-4">
+                <div class="aspect-square bg-slate-100 rounded-lg overflow-hidden border border-slate-200 flex items-center justify-center">
+                    <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                </div>
+
+                <div class="grid grid-cols-4 gap-2">
+                    <div class="aspect-square rounded border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-300">
+                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"></path></svg>
+                    </div>
+                    <div class="aspect-square rounded border border-slate-200 bg-slate-50 flex items-center justify-center text-slate-300">
+                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"></path></svg>
+                    </div>
+                    <button class="aspect-square rounded border-2 border-dashed border-slate-300 flex items-center justify-center text-slate-400 hover:bg-slate-50 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                    </button>
+                </div>
+
+                <div class="mt-4">
+                    <label class="section-label">Upload New Media</label>
+                    <input type="file" multiple class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-bold file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200 cursor-pointer"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-4 border-b border-slate-100 bg-slate-50/50">
+                <h2 class="font-bold text-slate-700 text-sm">System Context</h2>
+            </div>
+            <div class="p-4 space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="section-label">Order Number</label>
+                        <p class="text-sm font-bold accent-text">ORD-88291</p>
+                    </div>
+                    <div>
+                        <label class="section-label">Order Status</label>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-[10px] font-bold uppercase">Shipped</span>
+                    </div>
+                    <div>
+                        <label class="section-label">Return Status</label>
+                        <p class="text-sm font-semibold text-slate-600">None</p>
+                    </div>
+                    <div>
+                        <label class="section-label">Delivery Date</label>
+                        <p class="text-sm font-semibold text-slate-600">Oct 28, 2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lg:col-span-2 space-y-6">
+
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="p-4 border-b border-slate-100 bg-slate-50/50">
+            <h2 class="font-bold text-slate-700 text-sm">Product Information</h2>
+        </div>
+        <div class="p-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="section-label">Item Name</label>
+                    <input type="text" value="The North Face Jacket" class="w-full border-slate-200 rounded-lg text-sm focus:ring-[#2F2FE4] focus:border-[#2F2FE4]"/>
+                </div>
+                <div>
+                    <label class="section-label">Item Number / SKU</label>
+                    <input type="text" value="SKU-88291-XL-BLK" class="w-full border-slate-200 rounded-lg text-sm bg-slate-50 text-slate-500" readonly/>
+                </div>
+                <div>
+                    <label class="section-label">Brand Name</label>
+                    <input type="text" value="The North Face" class="w-full border-slate-200 rounded-lg text-sm focus:ring-[#2F2FE4] focus:border-[#2F2FE4]"/>
+                </div>
+                <div>
+                    <label class="section-label">Category</label>
+                    <select class="w-full border-slate-200 rounded-lg text-sm focus:ring-[#2F2FE4] focus:border-[#2F2FE4]">
+                        <option>Outerwear</option>
+                        <option>Activewear</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-6">
+                <label class="section-label">Description</label>
+                <textarea rows="4" class="w-full border-slate-200 rounded-lg text-sm focus:ring-[#2F2FE4] focus:border-[#2F2FE4]">Premium water-resistant jacket designed for hiking and daily outdoor use.</textarea>
+            </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-4 border-b border-slate-100 bg-slate-50/50">
+                <h2 class="font-bold text-slate-700 text-sm">Attributes</h2>
+            </div>
+            <div class="p-6 space-y-4">
+                <div>
+                    <label class="section-label">Size</label>
+                    <div class="flex gap-2">
+                        <button class="px-3 py-1 border border-slate-200 rounded text-xs font-bold hover:bg-slate-50">S</button>
+                        <button class="px-3 py-1 border border-slate-200 rounded text-xs font-bold hover:bg-slate-50">M</button>
+                        <button class="px-3 py-1 border border-slate-200 rounded text-xs font-bold hover:bg-slate-50">L</button>
+                        <button class="px-3 py-1 accent-bg text-white rounded text-xs font-bold">XL</button>
+                    </div>
+                </div>
+                <div>
+                    <label class="section-label">Color Variant</label>
+                    <div class="flex gap-3 items-center" id="swatch-container">
+                        <div class="color-swatch bg-black active" title="Black" onclick="toggleSwatch(this)"></div>
+                        <div class="color-swatch bg-[#c41e3a]" title="Cardinal Red" onclick="toggleSwatch(this)"></div>
+                        <div class="color-swatch bg-[#2F2FE4]" title="Brand Blue" onclick="toggleSwatch(this)"></div>
+                    </div>
+                </div>
+                <div>
+                    <label class="section-label">Stock Quantity</label>
+                    <input type="number" value="24" class="w-full border-slate-200 rounded-lg text-sm font-bold text-green-600 focus:ring-green-500 focus:border-green-500"/>
+                </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-4 border-b border-slate-100 bg-slate-50/50">
+                <h2 class="font-bold text-slate-700 text-sm">Pricing</h2>
+            </div>
+            <div class="p-6 space-y-4">
+                <div>
+                    <label class="section-label">Original Price</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-2 text-slate-400 text-sm font-medium">$</span>
+                        <input type="text" value="201.00" class="w-full pl-7 border-slate-200 rounded-lg text-sm font-semibold"/>
+                    </div>
+                </div>
+                <div>
+                    <label class="section-label">Discount Price</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-2 text-slate-400 text-sm font-medium">$</span>
+                        <input type="text" value="180.00" class="w-full pl-7 border-slate-200 rounded-lg text-sm text-red-500 font-semibold"/>
+                    </div>
+                </div>
+                <div>
+                    <label class="section-label">Final Price (After Tax)</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-2 text-slate-400 text-sm font-medium">$</span>
+                        <input type="text" value="194.40" class="w-full pl-7 border-slate-200 rounded-lg text-sm bg-slate-50 font-bold" readonly/>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="bg-red-50 rounded-xl border border-red-100 p-6 flex items-center justify-between">
+          <div>
+              <p class="text-sm font-bold text-red-800">Danger Zone</p>
+              <p class="text-xs text-red-600">Once deleted, this product variant cannot be recovered from the active inventory.</p>
+          </div>
+          <button class="px-6 py-2 bg-white border border-red-200 text-red-600 rounded-lg text-sm font-bold hover:bg-red-600 hover:text-white transition-all">Delete Item</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+    function toggleSwatch(element) {
+        // Remove active class from all swatches
+        document.querySelectorAll('.color-swatch').forEach(swatch => {
+            swatch.classList.remove('active');
+        });
+        // Add active class to clicked swatch
+        element.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
