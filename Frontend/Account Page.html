@@ -46,14 +46,14 @@
         .sidebar-brand {
             padding: 0 30px 40px;
             display: flex;
-            justify-content: center; /* توسيط اللوجو */
+            justify-content: center;
             align-items: center;
             border-bottom: 1px solid rgba(255,255,255,0.05);
             margin-bottom: 30px;
         }
 
         .sidebar-brand img {
-            height: 45px; /* تكبير بسيط للوجو ليظهر بوضوح */
+            height: 45px;
             width: auto;
             object-fit: contain;
         }
@@ -213,7 +213,8 @@
             border: 1px solid var(--border);
             cursor: pointer;
             transition: 0.3s;
-            text-decoration: none;
+            text-decoration: none; /* إزالة الخط تحت النص */
+            display: block;
         }
 
         .action-btn:hover {
@@ -278,9 +279,9 @@
         </div>
         
         <div style="margin-top:auto; padding: 20px 30px;">
-            <div class="menu-item" style="padding: 10px 0; color: #ff7675;">
+            <a href="login.html" class="menu-item" style="padding: 10px 0; color: #ff7675; text-decoration: none;">
                 <div class="icon-circle" style="background:rgba(255,118,117,0.1)">🚪</div> <span>Logout</span>
-            </div>
+            </a>
         </div>
     </div>
 
@@ -311,19 +312,19 @@
         </div>
 
         <div class="quick-actions">
-            <a href="payments.html" class="action-btn">
+            <a href="payments page.html" class="action-btn">
                 <span class="icon">💳</span>
                 <span>Payments</span>
             </a>
-            <a href="orders.html" class="action-btn">
+            <a href="orders page.html" class="action-btn">
                 <span class="icon">📦</span>
                 <span>Orders</span>
             </a>
-            <a href="returns.html" class="action-btn">
+            <a href="returns page.html" class="action-btn">
                 <span class="icon">↩️</span>
                 <span>Returns</span>
             </a>
-            <a href="tickets.html" class="action-btn">
+            <a href="tickets page.html" class="action-btn">
                 <span class="icon">🎫</span>
                 <span>Tickets List</span>
             </a>
@@ -392,4 +393,5 @@
         }
     </script>
 </body>
-</html>        
+</html>
+      
