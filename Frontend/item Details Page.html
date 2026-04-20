@@ -8,8 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; }
-    .accent-bg { background-color: #2F2FE4; }
-    .accent-text { color: #2F2FE4; }
+    /* Primary Color Updated to #28396C */
+    .accent-bg { background-color: #28396C; }
+    .accent-text { color: #28396C; }
     .section-label { 
       font-size: 10px; 
       font-weight: 700; 
@@ -31,7 +32,7 @@
       box-shadow: 0 0 0 2px #e2e8f0;
     }
     .color-swatch.active {
-      box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2F2FE4;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px #28396C;
     }
   </style>
 </head>
@@ -94,11 +95,11 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="section-label">Order Number</label>
-                        <p class="text-sm font-bold accent-text"></p>
+                        <p class="text-sm font-bold accent-text">ORD-99210</p>
                     </div>
                     <div>
                         <label class="section-label">Order Status</label>
-                        <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-[10px] font-bold uppercase">Shipped</span>
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 rounded text-[10px] font-bold uppercase">Shipped</span>
                     </div>
                     <div>
                         <label class="section-label">Return Status</label>
@@ -123,7 +124,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label class="section-label">Item Name</label>
-                    <input type="text" value="The North Face Jacket" class="w-full border-slate-200 rounded-lg text-sm focus:ring-[#2F2FE4] focus:border-[#2F2FE4]"/>
+                    <input type="text" value="The North Face Jacket" class="w-full border-slate-200 rounded-lg text-sm focus:ring-[#28396C] focus:border-[#28396C]"/>
                 </div>
                 <div>
                     <label class="section-label">Item Number / SKU</label>
@@ -131,11 +132,11 @@
                 </div>
                 <div>
                     <label class="section-label">Brand Name</label>
-                    <input type="text" value="The North Face" class="w-full border-slate-200 rounded-lg text-sm focus:ring-[#2F2FE4] focus:border-[#2F2FE4]"/>
+                    <input type="text" value="The North Face" class="w-full border-slate-200 rounded-lg text-sm focus:ring-[#28396C] focus:border-[#28396C]"/>
                 </div>
                 <div>
                     <label class="section-label">Category</label>
-                    <select class="w-full border-slate-200 rounded-lg text-sm focus:ring-[#2F2FE4] focus:border-[#2F2FE4]">
+                    <select class="w-full border-slate-200 rounded-lg text-sm focus:ring-[#28396C] focus:border-[#28396C]">
                         <option>Outerwear</option>
                         <option>Activewear</option>
                     </select>
@@ -143,7 +144,7 @@
             </div>
             <div class="mt-6">
                 <label class="section-label">Description</label>
-                <textarea rows="4" class="w-full border-slate-200 rounded-lg text-sm focus:ring-[#2F2FE4] focus:border-[#2F2FE4]">Premium water-resistant jacket designed for hiking and daily outdoor use.</textarea>
+                <textarea rows="4" class="w-full border-slate-200 rounded-lg text-sm focus:ring-[#28396C] focus:border-[#28396C]">Premium water-resistant jacket designed for hiking and daily outdoor use.</textarea>
             </div>
         </div>
       </div>
@@ -168,7 +169,7 @@
                     <div class="flex gap-3 items-center" id="swatch-container">
                         <div class="color-swatch bg-black active" title="Black" onclick="toggleSwatch(this)"></div>
                         <div class="color-swatch bg-[#c41e3a]" title="Cardinal Red" onclick="toggleSwatch(this)"></div>
-                        <div class="color-swatch bg-[#2F2FE4]" title="Brand Blue" onclick="toggleSwatch(this)"></div>
+                        <div class="color-swatch bg-[#28396C]" title="Brand Blue" onclick="toggleSwatch(this)"></div>
                     </div>
                 </div>
                 <div>
@@ -215,11 +216,9 @@
 
 <script>
     function toggleSwatch(element) {
-        // Remove active class from all swatches
         document.querySelectorAll('.color-swatch').forEach(swatch => {
             swatch.classList.remove('active');
         });
-        // Add active class to clicked swatch
         element.classList.add('active');
     }
 </script>
