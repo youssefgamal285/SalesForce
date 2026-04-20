@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Center - Premium Petrol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --petrol-bg: #002d33; 
+            --accent-color: #008191;
+            --text-gray: #64748b;
+            --high-prio: #d32f2f;
+            --med-prio: #fbc02d;
+            --low-prio: #1e88e5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafb;
+            color: var(--petrol-bg);
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--petrol-bg);
+            padding: 15px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo img { height: 35px; }
+        .back-link { color: white; text-decoration: none; font-size: 0.9rem; }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* 1. Dashboard Stats */
+        .ticket-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .stat-item p { font-size: 0.75rem; font-weight: 700; color: var(--text-gray); text-transform: uppercase; }
+        .stat-item h3 { font-size: 1.8rem; margin-top: 5px; }
+
+        /* 2. Page Header & Filter */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; }
+
+        .filter-tabs {
+            display: flex;
+            background: #eeeef0;
+            padding: 5px;
+            border-radius: 10px;
+            gap: 5px;
+        }
+
+        .tab-btn {
+            padding: 8px 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: transparent;
+            color: var(--text-gray);
+            transition: 0.2s;
+        }
+
+        .tab-btn.active { background: white; color: var(--petrol-bg); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+
+        .btn-create {
+            background: var(--petrol-bg);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-create:hover { background: var(--accent-color); transform: translateY(-2px); }
+
+        /* 3. Ticket List Table Style */
+        .ticket-list {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+
+        .ticket-row {
+            display: grid;
+            grid-template-columns: 8px 1fr 140px 140px 120px;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #f1f5f9;
+            transition: 0.3s;
+        }
+
+        .ticket-row:hover { background: #fcfdfe; }
+
+        .prio-indicator { height: 40px; border-radius: 4px; }
+        .prio-high { background: var(--high-prio); }
+        .prio-med { background: var(--med-prio); }
+        .prio-low { background: var(--low-prio); }
+
+        .ticket-main { padding-left: 15px; }
+        .ticket-main h4 { font-size: 1rem; margin-bottom: 4px; }
+        .ticket-main p { font-size: 0.8rem; color: var(--text-gray); display: flex; gap: 10px; }
+
+        .status-pill {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 20px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .status-waiting { background: #fff3e0; color: #ef6c00; }
+        .status-solved { background: #e8f5e9; color: #2e7d32; }
+        .status-open { background: #e3f2fd; color: #1565c0; }
+
+        .prio-text { font-size: 0.85rem; font-weight: 600; color: var(--text-gray); }
+
+        .btn-action {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-action:hover { border-color: var(--petrol-bg); background: #f8fafb; }
+
+        @media (max-width: 900px) {
+            .ticket-row { grid-template-columns: 8px 1fr 1fr; gap: 10px; }
+            .ticket-row .prio-text, .ticket-row .status-pill { font-size: 0.65rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><img src="Salesforce logo.png" alt="Logo"></div>
+        <a href="account.html" class="back-link">← Back to Account</a>
+    </header>
+
+    <div class="container">
+        
+        <div class="ticket-stats">
+            <div class="stat-item">
+                <p>Total Tickets</p>
+                <h3>12</h3>
+            </div>
+            <div class="stat-item">
+                <p>Open Issues</p>
+                <h3 style="color: var(--accent-color);">3</h3>
+            </div>
+            <div class="stat-item">
+                <p>Solved</p>
+                <h3 style="color: var(--success-green, #2e7d32);">9</h3>
+            </div>
+            <div class="stat-item">
+                <p>Avg. Response</p>
+                <h3>4h</h3>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h1>Support Center</h1>
+            <div style="display: flex; gap: 15px;">
+                <div class="filter-tabs">
+                    <button class="tab-btn active">All</button>
+                    <button class="tab-btn">Open</button>
+                    <button class="tab-btn">Solved</button>
+                </div>
+                <button class="btn-create">+ New Ticket</button>
+            </div>
+        </div>
+
+        <div class="ticket-list">
+            <div class="ticket-row">
+                <div class="prio-indicator prio-high"></div>
+                <div class="ticket-main">
+                    <h4>Payment failed during checkout</h4>
+                    <p><span>#TK-8802</span> | <span>Updated 20m ago</span> | <span>📎 2 Files</span></p>
+                </div>
+                <div class="prio-text">Urgent</div>
+                <div class="status-pill status-waiting">Waiting Support</div>
+                <button class="btn-action">Manage</button>
+            </div>
+
+            <div class="ticket-row">
+                <div class="prio-indicator prio-med"></div>
+                <div class="ticket-main">
+                    <h4>Inquiry about Fashion Category Discounts</h4>
+                    <p><span>#TK-8790</span> | <span>Updated 5h ago</span></p>
+                </div>
+                <div class="prio-text">Medium</div>
+                <div class="status-pill status-open">Open</div>
+                <button class="btn-action">Manage</button>
+            </div>
+
+            <div class="ticket-row">
+                <div class="prio-indicator prio-low"></div>
+                <div class="ticket-main">
+                    <h4>How to change my shipping address?</h4>
+                    <p><span>#TK-8700</span> | <span>Solved 2 days ago</span></p>
+                </div>
+                <div class="prio-text">Low</div>
+                <div class="status-pill status-solved">Solved</div>
+                <button class="btn-action">Manage</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
