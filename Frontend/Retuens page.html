@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Returns & Refunds - Premium Petrol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --petrol-bg: #002d33; 
+            --accent-color: #008191;
+            --text-gray: #64748b;
+            --white: #ffffff;
+            --return-red: #d32f2f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafb;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--petrol-bg);
+            padding: 15px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo img { height: 40px; }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .back-link:hover { color: var(--accent-color); }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--petrol-bg);
+            font-size: 2.8rem;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-container input {
+            padding: 12px 15px 12px 40px;
+            border-radius: 10px;
+            border: 1px solid #e0e6e7;
+            width: 250px;
+            outline: none;
+        }
+
+        .search-container::before {
+            content: '🔍';
+            position: absolute; left: 12px; top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.5;
+        }
+
+        .filter-select {
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 1px solid #e0e6e7;
+            background: white;
+            color: var(--petrol-bg);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Returns List */
+        .order-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .return-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px 30px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            border-left: 5px solid var(--return-red); /* تمييز للمرتجعات باللون الأحمر */
+            transition: 0.3s ease;
+        }
+
+        .return-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .order-info h3 {
+            color: var(--petrol-bg);
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .order-info p {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+
+        /* ألوان حالات المرتجع */
+        .status-refunded { background: #e8f5e9; color: #2e7d32; } /* تم استرجاع المبلغ */
+        .status-processing { background: #e3f2fd; color: #1565c0; } /* تحت الإجراء */
+        .status-denied { background: #ffebee; color: #c62828; } /* مرفوض */
+        .status-received { background: #fff3e0; color: #ef6c00; } /* تم استلام المنتج */
+
+        .price {
+            font-weight: 700;
+            color: var(--petrol-bg);
+            font-size: 1.1rem;
+        }
+
+        .btn-view {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #e0e6e7;
+            background: white;
+            font-weight: 600;
+            color: var(--petrol-bg);
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: center;
+        }
+
+        .btn-view:hover {
+            background: var(--petrol-bg);
+            color: white;
+        }
+
+        @media (max-width: 850px) {
+            .return-card { grid-template-columns: 1fr 1fr; gap: 20px; }
+            .page-header { flex-direction: column; align-items: flex-start; }
+            .controls { width: 100%; flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><img src="Salesforce logo.png" alt="Logo"></div>
+        <a href="account.html" class="back-link">← Back to Account</a>
+    </header>
+
+    <div class="container">
+        
+        <div class="page-header">
+            <h1>Returns</h1>
+            
+            <div class="controls">
+                <div class="search-container">
+                    <input type="text" placeholder="Search by Return ID...">
+                </div>
+                
+                <select class="filter-select">
+                    <option value="all">All Returns</option>
+                    <option value="processing">In Progress</option>
+                    <option value="refunded">Refunded</option>
+                    <option value="denied">Denied</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="order-list">
+            <div class="return-card">
+                <div class="order-info">
+                    <h3>Return #RT-5510</h3>
+                    <p>Original Order: #SF-9920 | 22 Apr, 2026</p>
+                </div>
+                <div class="status-badge status-processing">Processing</div>
+                <div class="price">$150.00</div>
+                <button class="btn-view">Track Status</button>
+            </div>
+
+            <div class="return-card">
+                <div class="order-info">
+                    <h3>Return #RT-5402</h3>
+                    <p>Original Order: #SF-9815 | 15 Mar, 2026</p>
+                </div>
+                <div class="status-badge status-refunded">Refunded</div>
+                <div class="price">$420.00</div>
+                <button class="btn-view">View Receipt</button>
+            </div>
+
+            <div class="return-card">
+                <div class="order-info">
+                    <h3>Return #RT-5390</h3>
+                    <p>Original Order: #SF-9702 | 02 Mar, 2026</p>
+                </div>
+                <div class="status-badge status-received">Received</div>
+                <div class="price">$85.00</div>
+                <button class="btn-view">Details</button>
+            </div>
+
+            <div class="return-card">
+                <div class="order-info">
+                    <h3>Return #RT-5210</h3>
+                    <p>Original Order: #SF-9650 | 20 Jan, 2026</p>
+                </div>
+                <div class="status-badge status-denied">Denied</div>
+                <div class="price">$1,100.00</div>
+                <button class="btn-view">View Reason</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
