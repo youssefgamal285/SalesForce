@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SalesForce - Modern UI with Popup Style</title>
+    <title>SalesForce - Modern UI with Unified Take Action (#021A54)</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>
         tailwind.config = {
@@ -12,13 +12,14 @@
                     colors: {
                         primary: '#28396C',
                         primaryHover: '#1d2a52',
+                        actionPrimary: '#021A54',
+                        actionPrimaryHover: '#00133d',
                     }
                 }
             }
         }
     </script>
     <style>
-        /* --- MAIN STYLES --- */
         body { 
             font-family: 'Segoe UI', Tahoma, sans-serif; 
             background: #f0f2f5; 
@@ -57,7 +58,6 @@
         .logo-placeholder { height: 40px; display: flex; align-items: center; }
         .logo-placeholder img { height: 100%; width: auto; }
 
-        /* Info Grid - same as first code */
         .line-1-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
@@ -91,7 +91,6 @@
             min-height: 1.2em;
         }
 
-        /* Tabs - same style as first code */
         .line-2-grid { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
@@ -126,7 +125,7 @@
             box-shadow: 0 10px 15px -3px rgba(40, 57, 108, 0.3); 
         }
 
-        /* Popup Container - NEW STYLE from first code */
+        /* Popup Container */
         .popup-container { 
             display: none; 
             padding: 0 20px 20px 20px; 
@@ -198,7 +197,6 @@
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* Table Styling - preserved from second code */
         .line-table-container { 
             padding: 15px; 
         }
@@ -240,7 +238,6 @@
         
         .action-link:hover { background-color: #1d2a52; }
 
-        /* Main Layout */
         .main-layout-container {
             display: flex;
             gap: 20px;
@@ -250,7 +247,6 @@
         
         .dashboard-content { flex: 1; }
         
-        /* Accordion Styles - preserved but fully unified to #28396C */
         .accordion-content {
             max-height: 0;
             overflow: hidden;
@@ -266,44 +262,44 @@
             transform: rotate(180deg);
         }
 
-        /* Additional Sidebar overrides to enforce #28396C everywhere in Take Action */
-        /* تم إصلاح جميع التحذيرات - إزالة الخصائص غير المعيارية */
-        .sidebar-action-btn {
-            background-color: #28396C;
+        .take-action-sidebar .action-heading {
+            color: #021A54;
         }
-        .sidebar-action-btn:hover {
-            background-color: #1d2a52;
+        .accordion-trigger-action {
+            color: #021A54 !important;
         }
-        .confirm-btn-sidebar {
-            background-color: #28396C !important;
+        .accordion-trigger-action svg {
+            stroke: #021A54 !important;
         }
-        .confirm-btn-sidebar:hover {
-            background-color: #1d2a52 !important;
+        .take-action-sidebar input:focus, 
+        .take-action-sidebar select:focus {
+            border-color: #021A54 !important;
+            box-shadow: 0 0 0 2px rgba(2, 26, 84, 0.2) !important;
+            outline: none;
+        }
+        .take-action-sidebar input[type="checkbox"]:checked,
+        .take-action-sidebar input[type="radio"]:checked {
+            accent-color: #021A54 !important;
+        }
+        .confirm-btn-action {
+            background-color: #021A54 !important;
+        }
+        .confirm-btn-action:hover {
+            background-color: #00133d !important;
+        }
+        .take-action-sidebar .custom-accent {
+            accent-color: #021A54;
+        }
+        .take-action-sidebar .accordion-item {
+            border-color: #e0e7ff;
+        }
+        .take-action-sidebar .accordion-trigger-action:hover {
+            background-color: #f5f7ff !important;
         }
         .cancel-order-sidebar-btn {
             background-color: #fff0f0;
             color: #c23939;
             border-color: #fbdcdc;
-        }
-        /* Override for any text primary inside take action to ensure it's #28396C */
-        .take-action-primary {
-            color: #28396C;
-        }
-        /* تم إصلاح التحذير: إزالة خاصية ring-color واستبدالها بـ box-shadow */
-        .focus-ring-primary:focus {
-            border-color: #28396C;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(40, 57, 108, 0.3);
-        }
-        input[type="checkbox"]:checked, 
-        input[type="radio"]:checked {
-            accent-color: #28396C;
-        }
-        /* تم إصلاح التحذير: إزالة خاصية ring وإضافة box-shadow */
-        select:focus, input:focus {
-            border-color: #28396C;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(40, 57, 108, 0.2);
         }
     </style>
 </head>
@@ -340,7 +336,7 @@
                 <div class="info-box"><label>Account Number</label><span>ACC-334567</span></div>
             </div>
 
-            <!-- Tabs with onclick (same as first code) -->
+            <!-- Tabs -->
             <div class="line-2-grid">
                 <div class="tab-box" onclick="togglePopup(event, 'Ticket')">Ticket (2)</div>
                 <div class="tab-box" onclick="togglePopup(event, 'Shipping')">Shipping (2)</div>
@@ -348,11 +344,8 @@
                 <div class="tab-box" onclick="togglePopup(event, 'Announce')">Announce Return (1)</div>
             </div>
 
-            <!-- Popup Containers - NEW STYLE from first code -->
-            <!-- Ticket Popup - Now with 2 actual tickets instead of "No Tickets" message -->
             <div id="popup-Ticket" class="popup-container">
                 <div class="modern-card-grid">
-                    <!-- Ticket 1 -->
                     <div class="status-card">
                         <div class="flex justify-between items-start mb-3">
                             <div>
@@ -371,7 +364,6 @@
                             <a href="#" class="text-xs font-bold text-primary hover:underline">View Details →</a>
                         </div>
                     </div>
-                    <!-- Ticket 2 -->
                     <div class="status-card">
                         <div class="flex justify-between items-start mb-3">
                             <div>
@@ -443,81 +435,41 @@
                 </div>
             </div>
 
-            <!-- Tables - Preserved exactly as in second code but with dummy data for better display -->
+            <!-- Tables -->
             <div class="line-table-container">
                 <table class="item-table">
                     <thead>
-                        <tr>
-                            <th>Tracking link</th>
-                            <th>Merchant name</th>
-                            <th>Delivery Promise</th>
-                        </tr>
+                        <tr><th>Tracking link</th><th>Merchant name</th><th>Delivery Promise</th></tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="#" class="text-primary font-medium">https://track.aramex.com/ARM9920110293</a></td>
-                            <td>Aramex Logistics</td>
-                            <td>Apr 22, 2025</td>
-                        </tr>
-                        <tr>
-                            <td><a href="#" class="text-primary font-medium">https://track.dhl.com/DHL440192837</a></td>
-                            <td>DHL Express</td>
-                            <td>Apr 24, 2025</td>
-                        </tr>
+                        <tr><td><a href="#" class="text-primary font-medium">https://track.aramex.com/ARM9920110293</a></td><td>Aramex Logistics</td><td>Apr 22, 2025</td></tr>
+                        <tr><td><a href="#" class="text-primary font-medium">https://track.dhl.com/DHL440192837</a></td><td>DHL Express</td><td>Apr 24, 2025</td></tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="line-table-container">
                 <table class="item-table">
-                    <thead>
-                        <tr>
-                            <th>Brand Name</th>
-                            <th>Item Number</th>
-                            <th>Action</th>
-                            <th>Size</th>
-                            <th>Entered Price</th>
-                            <th>Discount Price</th>
-                            <th>Return Status</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Brand Name</th><th>Item Number</th><th>Action</th><th>Size</th><th>Entered Price</th><th>Discount Price</th><th>Return Status</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td>Joe's Brand</td>
-                            <td>JT-2390</td>
-                            <td><a href="item Details Page.html" class="action-link">view item</a></td>
-                            <td>XL</td>
-                            <td>$129.99</td>
-                            <td>$99.99</td>
-                            <td>Pending</td>
-                        </tr>
-                        <tr>
-                            <td>Nike</td>
-                            <td>NK-8765</td>
-                            <td><a href="item Details Page.html" class="action-link">view item</a></td>
-                            <td>L</td>
-                            <td>$89.99</td>
-                            <td>$69.99</td>
-                            <td>Return Requested</td>
-                        </tr>
+                        <tr><td>Adidas</td><td>JT-2390</td><td><a href="item Details Page.html" class="action-link">view item</a></td><td>XL</td><td>$129.99</td><td>$99.99</td><td>Pending</td></tr>
+                        <tr><td>Nike</td><td>NK-8765</td><td><a href="item Details Page.html" class="action-link">view item</a></td><td>L</td><td>$89.99</td><td>$69.99</td><td>Return Requested</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <!-- Sidebar - FULLY UPDATED to use #28396C across all Take Action elements -->
-    <aside class="w-80 flex flex-col bg-gray-50 shrink-0 border border-gray-200 rounded shadow-sm">
+    <aside class="take-action-sidebar w-80 flex flex-col bg-gray-50 shrink-0 border border-gray-200 rounded shadow-sm">
         <div class="p-6 border-b border-gray-200 bg-white">
-            <h2 class="text-xl font-bold" style="color: #28396C;">Take Action</h2>
+            <h2 class="text-xl font-bold" style="color: #021A54;">Take Action</h2>
         </div>
         
         <div class="flex-grow overflow-y-auto p-4 space-y-3" id="action-accordion">
-            <!-- Accordion 1: Change Status - all colors to #28396C -->
             <div class="accordion-item border border-gray-200 rounded bg-white overflow-hidden shadow-sm">
-                <button class="w-full flex items-center justify-between p-4 text-left font-semibold transition-colors accordion-trigger" style="color: #28396C; background-color: white;" onmouseover="this.style.backgroundColor='#f8fafc'" onmouseout="this.style.backgroundColor='white'">
+                <button class="accordion-trigger-action w-full flex items-center justify-between p-4 text-left font-semibold transition-colors" style="color: #021A54; background-color: white;" onmouseover="this.style.backgroundColor='#f5f7ff'" onmouseout="this.style.backgroundColor='white'">
                     <span>Change Status</span>
-                    <svg class="h-4 w-4 transform transition-transform chevron-icon" fill="none" stroke="#28396C" viewBox="0 0 24 24">
+                    <svg class="h-4 w-4 transform transition-transform chevron-icon" fill="none" stroke="#021A54" viewBox="0 0 24 24">
                         <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                     </svg>
                 </button>
@@ -527,24 +479,24 @@
                             <p class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Select Items</p>
                             <div class="space-y-1">
                                 <label class="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
-                                    <input class="rounded border-gray-300 focus:ring-2 focus:ring-[#28396C] focus:border-[#28396C]" type="checkbox" style="accent-color: #28396C;"/> Item 1 (Joe's Brand)
+                                    <input class="rounded border-gray-300 focus:ring-[#021A54] focus:border-[#021A54]" type="checkbox" style="accent-color: #021A54;"/> Item 1 (Adidas)
                                 </label>
                                 <label class="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
-                                    <input class="rounded border-gray-300 focus:ring-2 focus:ring-[#28396C] focus:border-[#28396C]" type="checkbox" style="accent-color: #28396C;"/> Item 2 (Nike)
+                                    <input class="rounded border-gray-300 focus:ring-[#021A54] focus:border-[#021A54]" type="checkbox" style="accent-color: #021A54;"/> Item 2 (Nike)
                                 </label>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 gap-3">
                             <div>
                                 <label class="block text-[10px] font-bold text-gray-500 uppercase mb-1">Status From</label>
-                                <select class="w-full text-sm border-gray-300 rounded focus:border-[#28396C] focus:shadow-outline" style="outline: none; transition: all 0.2s;">
+                                <select class="w-full text-sm border-gray-300 rounded focus:border-[#021A54]" style="outline: none; transition: all 0.2s;">
                                     <option>Processing</option>
                                     <option>Pending</option>
                                 </select>
                             </div>
                             <div>
                                 <label class="block text-[10px] font-bold text-gray-500 uppercase mb-1">Status To</label>
-                                <select class="w-full text-sm border-gray-300 rounded focus:border-[#28396C] focus:shadow-outline" style="outline: none; transition: all 0.2s;">
+                                <select class="w-full text-sm border-gray-300 rounded focus:border-[#021A54]" style="outline: none; transition: all 0.2s;">
                                     <option>Delivered</option>
                                     <option>Shipped</option>
                                     <option>Cancelled</option>
@@ -555,11 +507,10 @@
                 </div>
             </div>
 
-            <!-- Accordion 2: Make a Refund - fully integrated with #28396C -->
             <div class="accordion-item border border-gray-200 rounded bg-white overflow-hidden shadow-sm">
-                <button class="w-full flex items-center justify-between p-4 text-left font-semibold transition-colors accordion-trigger" style="color: #28396C; background-color: white;" onmouseover="this.style.backgroundColor='#f8fafc'" onmouseout="this.style.backgroundColor='white'">
+                <button class="accordion-trigger-action w-full flex items-center justify-between p-4 text-left font-semibold transition-colors" style="color: #021A54; background-color: white;" onmouseover="this.style.backgroundColor='#f5f7ff'" onmouseout="this.style.backgroundColor='white'">
                     <span>Make a Refund</span>
-                    <svg class="h-4 w-4 transform transition-transform chevron-icon" fill="none" stroke="#28396C" viewBox="0 0 24 24">
+                    <svg class="h-4 w-4 transform transition-transform chevron-icon" fill="none" stroke="#021A54" viewBox="0 0 24 24">
                         <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                     </svg>
                 </button>
@@ -569,11 +520,11 @@
                             <p class="text-[10px] font-bold text-gray-400 uppercase tracking-tight">Step 1: Select Items</p>
                             <div class="space-y-1">
                                 <label class="flex items-center justify-between text-sm text-slate-600 cursor-pointer">
-                                    <span class="flex items-center gap-2"><input class="rounded border-gray-300 focus:ring-[#28396C]" type="checkbox" style="accent-color: #28396C;"/> Item 1 (Joe's Brand)</span>
+                                    <span class="flex items-center gap-2"><input class="rounded border-gray-300 focus:ring-[#021A54]" type="checkbox" style="accent-color: #021A54;"/> Item 1 (Adidas)</span>
                                     <span class="text-gray-400 font-bold">$99.99</span>
                                 </label>
                                 <label class="flex items-center justify-between text-sm text-slate-600 cursor-pointer">
-                                    <span class="flex items-center gap-2"><input class="rounded border-gray-300 focus:ring-[#28396C]" type="checkbox" style="accent-color: #28396C;"/> Item 2 (Nike)</span>
+                                    <span class="flex items-center gap-2"><input class="rounded border-gray-300 focus:ring-[#021A54]" type="checkbox" style="accent-color: #021A54;"/> Item 2 (Nike)</span>
                                     <span class="text-gray-400 font-bold">$69.99</span>
                                 </label>
                             </div>
@@ -581,27 +532,26 @@
                         <div class="space-y-2">
                             <p class="text-[10px] font-bold text-gray-400 uppercase tracking-tight">Step 2: Reason</p>
                             <div class="space-y-1">
-                                <label class="flex items-center gap-2 text-sm text-slate-600 cursor-pointer"><input name="refund_reason" type="radio" class="focus:ring-[#28396C]" style="accent-color: #28396C;"/> Missing Shipping</label>
-                                <label class="flex items-center gap-2 text-sm text-slate-600 cursor-pointer"><input name="refund_reason" type="radio" class="focus:ring-[#28396C]" style="accent-color: #28396C;"/> Missing Warehouse</label>
-                                <label class="flex items-center gap-2 text-sm text-slate-600 cursor-pointer"><input name="refund_reason" type="radio" class="focus:ring-[#28396C]" style="accent-color: #28396C;"/> Damaged Item</label>
+                                <label class="flex items-center gap-2 text-sm text-slate-600 cursor-pointer"><input name="refund_reason" type="radio" class="focus:ring-[#021A54]" style="accent-color: #021A54;"/> Missing Shipping</label>
+                                <label class="flex items-center gap-2 text-sm text-slate-600 cursor-pointer"><input name="refund_reason" type="radio" class="focus:ring-[#021A54]" style="accent-color: #021A54;"/> Missing Warehouse</label>
+                                <label class="flex items-center gap-2 text-sm text-slate-600 cursor-pointer"><input name="refund_reason" type="radio" class="focus:ring-[#021A54]" style="accent-color: #021A54;"/> Damaged Item</label>
                             </div>
                         </div>
                         <div>
                             <p class="text-[10px] font-bold text-gray-400 uppercase tracking-tight mb-1">Step 3: Amount</p>
                             <div class="relative">
                                 <span class="absolute left-3 top-2 text-gray-400 text-sm">$</span>
-                                <input class="w-full pl-6 py-2 text-sm border-gray-300 rounded focus:border-[#28396C] focus:shadow-outline" placeholder="0.00" type="text" style="outline: none; transition: all 0.2s;"/>
+                                <input class="w-full pl-6 py-2 text-sm border-gray-300 rounded focus:border-[#021A54] focus:shadow-outline" placeholder="0.00" type="text" style="outline: none; transition: all 0.2s;"/>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Accordion 3: Cancel Order - styled with #28396C borders and primary text but preserving warning button -->
             <div class="accordion-item border border-gray-200 rounded bg-white overflow-hidden shadow-sm">
-                <button class="w-full flex items-center justify-between p-4 text-left font-semibold transition-colors accordion-trigger" style="color: #28396C; background-color: white;" onmouseover="this.style.backgroundColor='#f8fafc'" onmouseout="this.style.backgroundColor='white'">
+                <button class="accordion-trigger-action w-full flex items-center justify-between p-4 text-left font-semibold transition-colors" style="color: #021A54; background-color: white;" onmouseover="this.style.backgroundColor='#f5f7ff'" onmouseout="this.style.backgroundColor='white'">
                     <span>Cancel Order</span>
-                    <svg class="h-4 w-4 transform transition-transform chevron-icon" fill="none" stroke="#28396C" viewBox="0 0 24 24">
+                    <svg class="h-4 w-4 transform transition-transform chevron-icon" fill="none" stroke="#021A54" viewBox="0 0 24 24">
                         <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                     </svg>
                 </button>
@@ -612,13 +562,13 @@
                         </p>
                         <div class="space-y-1">
                             <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-tight">Reason (Optional)</label>
-                            <select class="w-full text-sm border-gray-300 rounded focus:border-[#28396C] focus:shadow-outline" style="outline: none; transition: all 0.2s;">
+                            <select class="w-full text-sm border-gray-300 rounded focus:border-[#021A54] focus:shadow-outline" style="outline: none; transition: all 0.2s;">
                                 <option value="" selected disabled>Select a reason...</option>
                                 <option value="out_of_stock">Out of Stock</option>
                                 <option value="customer_request">Customer Request</option>
                             </select>
                         </div>
-                        <button class="w-full py-3 bg-[#fff0f0] text-[#c23939] border border-[#fbdcdc] rounded text-sm font-bold hover:bg-[#ffe5e5] transition-colors">
+                        <button class="cancel-order-sidebar-btn w-full py-3 bg-[#fff0f0] text-[#c23939] border border-[#fbdcdc] rounded text-sm font-bold hover:bg-[#ffe5e5] transition-colors">
                             Cancel Order
                         </button>
                     </div>
@@ -626,18 +576,15 @@
             </div>
         </div>
 
-        <!-- Confirm Button - PRIMARY COLOR #28396C fully applied -->
         <div class="p-4 bg-white border-t border-gray-200">
-            <button class="w-full py-3 text-white rounded font-bold transition-colors shadow-sm" style="background-color: #28396C;" onmouseover="this.style.backgroundColor='#1d2a52'" onmouseout="this.style.backgroundColor='#28396C'">
+            <button class="confirm-btn-action w-full py-3 text-white rounded font-bold transition-colors shadow-sm" style="background-color: #021A54;" onmouseover="this.style.backgroundColor='#00133d'" onmouseout="this.style.backgroundColor='#021A54'">
                 Confirm
             </button>
         </div>
     </aside>
-
 </div>
 
 <script>
-    
     function togglePopup(event, target) {
         const popups = document.querySelectorAll('.popup-container');
         const tabs = document.querySelectorAll('.tab-box');
@@ -653,9 +600,9 @@
         }
     }
 
-    /* --- SIDEBAR ACCORDION LOGIC - Preserved from second code but with smooth behavior --- */
     document.addEventListener('DOMContentLoaded', () => {
-        const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+        
+        const accordionTriggers = document.querySelectorAll('.accordion-trigger-action');
         
         accordionTriggers.forEach(trigger => {
             trigger.addEventListener('click', () => {
@@ -675,7 +622,7 @@
             e.target.value = e.target.value.replace(/[^0-9.]/g, '');
         });
 
-        // Set default active tab and content (Shipping by default)
+        
         const defaultTab = document.querySelector('.tab-box:nth-child(2)');
         const defaultPopup = document.getElementById('popup-Shipping');
         if (defaultTab && defaultPopup) {
