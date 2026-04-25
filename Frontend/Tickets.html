@@ -9,6 +9,26 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         
+        /* Custom Logo Styling - Meow! */
+        .logo-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 24px; /* Adjust this to move logo away from the corner */
+            z-index: 50;
+        }
+
+        .brand-logo {
+            width: 160px;    /* Change this to adjust size */
+            height: auto;    /* Keeps proportions perfect */
+            display: block;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .brand-logo:hover {
+            transform: scale(1.05); /* Subtle interaction effect */
+        }
+
         .modal-animate-in {
             animation: modalIn 0.3s ease-out forwards;
         }
@@ -21,9 +41,25 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+
+        /* Mobile adjustments for logo */
+        @media (max-width: 768px) {
+            .logo-container {
+                padding: 16px;
+                position: relative; /* Moves logo into flow on small screens if preferred */
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+            }
+            .brand-logo { width: 110px; }
+        }
     </style>
 </head>
 <body class="bg-[#F8FAFC] text-[#1E293B] min-h-screen flex flex-col items-center p-6 md:p-12">
+
+    <div class="logo-container">
+        <img src="Logo.png" alt="StrategicAnchor Logo" class="brand-logo">
+    </div>
 
     <header class="w-full max-w-4xl mb-8">
         <h1 class="text-3xl font-800 tracking-tight text-[#0F172A]">Tickets</h1>
@@ -74,9 +110,7 @@
     </main>
 
     <div id="emailModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        
         <div class="bg-white w-full max-w-xl rounded-2xl shadow-2xl overflow-hidden modal-animate-in">
-            
             <div class="px-8 py-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-full bg-[#28396C]/10 flex items-center justify-center">
@@ -146,7 +180,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Close on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeEmailModal();
         });
